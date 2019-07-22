@@ -1,15 +1,24 @@
 .Post {
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    background-color: #FAFAFA;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    min-height: 40em;
 }
 
-.Post h1 {
-    font-size: 3rem;
+.Post div {
+    width: 100%;
 }
-
-.Post p {
-    font-size: 2rem;   
+.Post {
+    margin-top: 0.3em;
+    border-radius: 5%;
+    background-color: rgb(255,111,97);
+    border: 0.2em solid #2F5597;
+    color: white;
+}
+.board-content{
+    margin-left: 0.3em;
+    margin-bottom: 1em;
+}
+.writer img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    padding: 1em;
 }
