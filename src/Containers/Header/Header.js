@@ -1,17 +1,51 @@
-import React from 'react';
-import './Header.css';
+import React,{Component} from 'react';
+import { Sign, UserInfo, HeaderWrapper } from '../../Components';
+import * as service from '../../Services/Sign';
 
-const Header = () => (
-    <div className="header-content">
-        <div className="search-wrapper">
-            <input  
-                type="text" 
-                className="search-bar"
-                placeholder="검색"  
-            />
-            <div id="search-result-box"></div>
-        </div>
-    </div>
-)
+class Header extends Component{
+    constructor(props){
+        super();
+        this.state = {
+            id: null,
+            password: null,
+            token: null
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+        [e.target.className]: e.target.value
+        })
+    }
+    
+    handleClick = async () =>{
+        const x = await service.signIn(this.state.id,this.state.password);
+        this.setState({
+            token: x.data
+        });
+    }
+
+    render(){
+        return (
+            <HeaderWrapper>
+                {
+                    this.state.token ==null ?
+                (<Sign
+                    id= {this.state.id}
+                    password= {this.state.password}
+                    token={this.state.token}
+                    onChange = {this.handleChange}
+                    signIn = {this.handleClick}/>)
+                :
+                (<UserInfo
+                    id= {this.state.id}
+                    password= {this.state.password}
+                    token={this.state.token}
+                />)
+                }
+            </HeaderWrapper>
+        )
+    }
+}
 
 export default Header;
