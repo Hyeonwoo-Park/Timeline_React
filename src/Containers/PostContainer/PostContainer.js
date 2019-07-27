@@ -24,10 +24,9 @@ class PostContainer extends Component {
     }
 
     fetchPostInfo = async (postId) => {
-        const post = await service.getBoard(0,5,1);
+        const post = await service.getBoard(0,5,3);
         console.log(post);
-        const postList = post.data._embedded.boardReadDTOList; 
-        console.log(postList[0].id);
+        const postList = post.data._embedded.boardReadDTOList;
         this.setState({
             fetching: true,
             postList
@@ -37,7 +36,7 @@ class PostContainer extends Component {
 
 
     componentDidMount() {
-        this.fetchPostInfo(1);
+        this.fetchPostInfo(3);
     }
     
     render() {

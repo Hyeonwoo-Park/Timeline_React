@@ -1,11 +1,15 @@
 import React from 'react';
-import { Header, PostContainer } from './Containers';
+import { BodyWrapper } from './Components';
+import { HeaderContainer, PostContainer, FriendsContainer } from './Containers';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <PostContainer/>
+      <HeaderContainer/>
+      <BodyWrapper>
+        <PostContainer/>
+        <FriendsContainer/>
+      </BodyWrapper>
     </div>
   );
 }

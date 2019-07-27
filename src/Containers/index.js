@@ -1,7 +1,9 @@
-import Header from './Header/Header';
+import HeaderContainer from './HeaderContainer/HeaderContainer';
 import PostContainer from './PostContainer/PostContainer';
+import FriendsContainer from './FriendsContainer/FriendsContainer';
 
 export {
-    Header,
-    PostContainer
+    HeaderContainer,
+    PostContainer,
+    FriendsContainer
 };

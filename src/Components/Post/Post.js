@@ -4,12 +4,12 @@ import image1 from '../../Resources/user_img.svg';
 
 const Post = ({writer,image,body}) => (
     <div className="Post">
-        <div class="writer" >
-            <img src={image1}/>
+        <div className="writer" >
+            <img src={image1} alt ="writer's profile"/>
             <strong>{writer}</strong>
         </div>
-        <img src={image1}/>
-        <div class="board-content">{body}</div>
+        <img src={image1} alt = "content"/>
+        <div className="board-content">{body}</div>
     </div>
 );
 

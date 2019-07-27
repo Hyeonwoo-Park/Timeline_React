@@ -3,18 +3,18 @@ import React from 'react';
 const Sign = (props) => {
     return (
         <form className = "form-signin">
-            <h>ID </h>
+            <strong>ID </strong>
             <input
                 type= "text"
                 className= "id"
                 onChange= {props.onChange}
             />
-            <h> Password </h>
+            <strong> Password </strong>
             <input
                 type= "password"
                 className= "password"
                 onChange= {props.onChange}
-            /> 
+            />&nbsp; &nbsp;
             <button className= "header-btn" 
                     type= "button"
                     onClick= {props.signIn}>sign in</button>

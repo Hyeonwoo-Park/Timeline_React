@@ -1,0 +1,10 @@
+.FriendsList{
+    border: solid;
+    border-width:0.2em;
+    border-color:#2F5597;
+    border-radius: 10%;
+    padding: 1em;
+    margin-bottom: 1em;
+    overflow: auto;
+    height: 25%;
+}

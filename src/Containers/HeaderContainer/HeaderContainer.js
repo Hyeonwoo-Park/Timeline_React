@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { Sign, UserInfo, HeaderWrapper } from '../../Components';
 import * as service from '../../Services/Sign';
 
-class Header extends Component{
+class HeaderContainer extends Component{
     constructor(props){
         super();
         this.state = {
@@ -48,4 +48,4 @@ class Header extends Component{
     }
 }
 
-export default Header;
+export default HeaderContainer;

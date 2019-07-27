@@ -1,0 +1,27 @@
+.friend img{
+    height: 100%;
+    border-radius : 50%;
+    object-fit: cover;
+    object-position: top;
+    width: 2em;
+}
+
+.friend strong {
+    width: 58%;
+    margin-left: 1em;
+}
+
+.friend button {
+    background: none;
+    border: 0.2em solid #fff;
+    border-radius: 5px;
+    color: black;
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+    float: right;
+    top: 20%;
+}
+

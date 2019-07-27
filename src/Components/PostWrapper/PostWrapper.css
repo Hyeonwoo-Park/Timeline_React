@@ -1,10 +1,9 @@
 .PostWrapper {
-    width: 40rem;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .PostWrapper {
-        width: 90%;    
-    }
+    width: 40%;
+    display: inline-block;
+    background-color: #FEDEDB;
+    color: black;
+    padding: 0.2em;
+    margin-left: 13%;
+    margin-right: 4%;
 }
