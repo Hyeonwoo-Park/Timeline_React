@@ -8,6 +8,7 @@ import HeaderWrapper from './HeaderWrapper/HeaderWrapper';
 import FriendsWrapper from './FriendsWrapper/FriendsWrapper';
 import FriendsList from './FriendsList/FriendsList';
 import Friend from './Friend/Friend';
+import Write from './Write/Write';
 
 export {
     BodyWrapper,
@@ -19,5 +20,6 @@ export {
     HeaderWrapper,
     FriendsWrapper,
     FriendsList,
-    Friend
+    Friend,
+    Write
 };

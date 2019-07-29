@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { PostWrapper, PostList } from '../../Components';
+import { PostWrapper, PostList, Write } from '../../Components';
 import * as service from '../../Services/Board';
 
 class PostContainer extends Component {
@@ -58,6 +58,7 @@ class PostContainer extends Component {
     render() {
         return (
             <PostWrapper>
+                <Write/>
                 <PostList
                 Posts={this.state.postList}/>
             </PostWrapper>
