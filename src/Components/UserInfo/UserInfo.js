@@ -5,10 +5,6 @@ const UserInfo = (props) => {
         <div>
             <h>ID : </h>
             {props.id}
-            <h>Password : </h>
-            {props.password}
-            <h>Token : </h>
-            {props.token}
         </div>
     );
 };

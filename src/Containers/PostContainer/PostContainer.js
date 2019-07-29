@@ -10,7 +10,8 @@ class PostContainer extends Component {
             fetching: false, // tells whether the request is waiting for response or not
             page:0,
             isLast: false,
-            postList: []
+            postList: [],
+            content: null
         };
     }
 
@@ -46,12 +47,12 @@ class PostContainer extends Component {
 
     handleContentChange = (e) => {
         this.setState({
-            content: e.target.data
+            content: e.target.value
         });
     }
 
     handleClickSubmit = async () =>{
-        await service.Write("fd",this.setState.content);
+        await service.Write(this.props.token,this.state.content);
         this.setState({
             content: null
         });

@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import { Sign, UserInfo, HeaderWrapper } from '../../Components';
-import * as service from '../../Services/Sign';
 
 class HeaderContainer extends Component{
     constructor(props){
@@ -12,35 +11,17 @@ class HeaderContainer extends Component{
         }
     }
 
-    handleChange = (e) => {
-        this.setState({
-        [e.target.className]: e.target.value
-        })
-    }
-    
-    handleClick = async () =>{
-        const x = await service.signIn(this.state.id,this.state.password);
-        this.setState({
-            token: x.data
-        });
-    }
-
     render(){
         return (
             <HeaderWrapper>
                 {
-                    this.state.token ==null ?
+                    this.props.token ==null ?
                 (<Sign
-                    id= {this.state.id}
-                    password= {this.state.password}
-                    token={this.state.token}
-                    onChange = {this.handleChange}
-                    signIn = {this.handleClick}/>)
+                    onChange = {this.props.onChange}
+                    signIn = {this.props.onClick}/>)
                 :
                 (<UserInfo
-                    id= {this.state.id}
-                    password= {this.state.password}
-                    token={this.state.token}
+                    id= {this.props.id}
                 />)
                 }
             </HeaderWrapper>
