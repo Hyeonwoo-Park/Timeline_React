@@ -27,7 +27,8 @@ class PostContainer extends Component {
             fetching: false,
             postList,
             isLast,
-            page: postId+1
+            page: postId+1,
+            content: null
         });
     }
 
@@ -41,6 +42,19 @@ class PostContainer extends Component {
         if (scrollHeight - innerHeight - scrollTop <100 && this.state.fetching === false && this.state.isLast === false) {
             this.fetchPostInfo(this.state.page);
         }
+    }
+
+    handleContentChange = (e) => {
+        this.setState({
+            content: e.target.data
+        });
+    }
+
+    handleClickSubmit = async () =>{
+        await service.Write("fd",this.setState.content);
+        this.setState({
+            content: null
+        });
     }
 
     componentDidMount() {
@@ -58,7 +72,9 @@ class PostContainer extends Component {
     render() {
         return (
             <PostWrapper>
-                <Write/>
+                <Write
+                onChange = {this.handleContentChange}
+                onClick = {this.handleClickSubmit}/>
                 <PostList
                 Posts={this.state.postList}/>
             </PostWrapper>
