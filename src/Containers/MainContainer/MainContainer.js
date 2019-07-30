@@ -24,9 +24,12 @@ class MainContainer extends Component {
     handleClick = async () =>{
         console.log("check");
         const x = await service.signIn(this.state.email,this.state.password);
+        console.log(x);
         if(x === null)
             return;
+        console.log(x);
         const token = x.data;
+        console.log(token.data);
         const y = await member.signIn(token);
         const id = y.data.id;
 
