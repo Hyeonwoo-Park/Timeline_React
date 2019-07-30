@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
-import {HeaderContainer, PostContainer, FriendsContainer} from '../../Containers';
-import {BodyWrapper} from '../../Components';
+import {NavigationContainer, PostContainer, FriendsContainer} from '..';
+import {MainWrapper} from '../../Components';
 import * as service from '../../Services/Sign';
-class tmp extends Component {
+
+class MainContainer extends Component {
     constructor(props){
         super();
         this.state = {
@@ -31,19 +32,19 @@ class tmp extends Component {
     render(){
         return (
             <div>
-                <HeaderContainer
+                <NavigationContainer
                     onChange = {this.handleChange}
                     onClick = {this.handleClick}
                     id = {this.state.id}
                     token = {this.state.token}/>
-                <BodyWrapper>
+                <MainWrapper>
                     <PostContainer
                         token = {this.state.token}/>
                     <FriendsContainer/>
-                </BodyWrapper>
+                </MainWrapper>
             </div>
         )
     }
 }
 
-export default tmp;
+export default MainContainer;

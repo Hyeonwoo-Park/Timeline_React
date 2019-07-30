@@ -1,10 +1,10 @@
-import HeaderContainer from './HeaderContainer/HeaderContainer';
+import NavigationContainer from './NavigationContainer/NavigationContainer';
 import PostContainer from './PostContainer/PostContainer';
 import FriendsContainer from './FriendsContainer/FriendsContainer';
-import Tmp from './TmpContainer/tmp';
+import MainContainer from './MainContainer/MainContainer';
 export {
-    HeaderContainer,
+    NavigationContainer,
     PostContainer,
     FriendsContainer,
-    Tmp
+    MainContainer
 };

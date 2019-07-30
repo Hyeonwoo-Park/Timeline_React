@@ -1,7 +1,7 @@
-import React,{Component} from 'react';
-import { Sign, UserInfo, HeaderWrapper } from '../../Components';
+import React,{ Component } from 'react';
+import { Sign, UserInfo, NavigationWrapper } from '../../Components';
 
-class HeaderContainer extends Component{
+class NavigationContainer extends Component{
     constructor(props){
         super();
         this.state = {
@@ -13,7 +13,7 @@ class HeaderContainer extends Component{
 
     render(){
         return (
-            <HeaderWrapper>
+            <NavigationWrapper>
                 {
                     this.props.token ==null ?
                 (<Sign
@@ -24,9 +24,9 @@ class HeaderContainer extends Component{
                     id= {this.props.id}
                 />)
                 }
-            </HeaderWrapper>
+            </NavigationWrapper>
         )
     }
 }
 
-export default HeaderContainer;
+export default NavigationContainer;

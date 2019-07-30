@@ -1,23 +1,23 @@
-import BodyWrapper from './BodyWrapper/BodyWrapper';
+import MainWrapper from './MainWrapper/MainWrapper';
 import PostWrapper from './PostWrapper/PostWrapper';
 import Post from './Post/Post';
 import PostList from './PostList/PostList';
 import Sign from './Sign/Sign';
 import UserInfo from './UserInfo/UserInfo';
-import HeaderWrapper from './HeaderWrapper/HeaderWrapper';
+import NavigationWrapper from './NavigationWrapper/NavigationWrapper';
 import FriendsWrapper from './FriendsWrapper/FriendsWrapper';
 import FriendsList from './FriendsList/FriendsList';
 import Friend from './Friend/Friend';
 import Write from './Write/Write';
 
 export {
-    BodyWrapper,
+    MainWrapper,
     PostWrapper,
     Post,
     PostList,
     Sign,
     UserInfo,
-    HeaderWrapper,
+    NavigationWrapper,
     FriendsWrapper,
     FriendsList,
     Friend,
