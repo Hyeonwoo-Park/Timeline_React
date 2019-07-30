@@ -4,7 +4,7 @@ export function getBoard(page,writer) {
     return axios.get(`/boards/?page=${page}&size=5&writer=${writer}`);
 }
 
-export function Write(token,content){
+export function write(token,content){
     console.log(token);
     console.log(content);
     return axios.post('/boards',{

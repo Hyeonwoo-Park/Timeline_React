@@ -50,7 +50,7 @@ class MainContainer extends Component {
                 <MainWrapper>
                     <PostContainer
                         token = {this.state.token}
-                        email = {this.state.email}/>
+                        id = {this.state.id}/>
                     <FriendsContainer
                         id = {this.state.id}/>
                 </MainWrapper>

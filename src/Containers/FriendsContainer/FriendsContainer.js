@@ -44,7 +44,7 @@ class FriendsContainer extends Component{
         if (this.props.id !== nextProps.id) {
             this.fetchFriendsInfo(nextProps.id);
         }
-      }
+    }
     render(){
         return(
             <FriendsWrapper>

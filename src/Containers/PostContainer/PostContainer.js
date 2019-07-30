@@ -7,7 +7,6 @@ class PostContainer extends Component {
         super();
         // initializes component state
         this.state = {
-            fetching: false, // tells whether the request is waiting for response or not
             page:0,
             isLast: false,
             postList: [],
@@ -15,20 +14,20 @@ class PostContainer extends Component {
         };
     }
 
-    fetchPostInfo = async (postId) => {
+    fetchPostInfo = async (pageNum,writer) => {
         this.setState({
             fetching: true
         })
-        const post = await service.getBoard(postId,3);
+        const post = await service.getBoard(pageNum,writer);
         console.log(post);
         const postList = this.state.postList.concat(post.data._embedded.boardReadDTOList);
         console.log(postList);
-        const isLast = (postId + 1 === post.data.page.totalPages);
+        const isLast = (pageNum + 1 === post.data.page.totalPages);
         this.setState({
             fetching: false,
             postList,
             isLast,
-            page: postId+1,
+            page: pageNum+1,
             content: null
         });
     }
@@ -41,7 +40,7 @@ class PostContainer extends Component {
                             document.body.scrollTop;
 
         if (scrollHeight - innerHeight - scrollTop <100 && this.state.fetching === false && this.state.isLast === false) {
-            this.fetchPostInfo(this.state.page);
+            this.fetchPostInfo(this.state.page,this.props.id);
         }
     }
 
@@ -52,16 +51,20 @@ class PostContainer extends Component {
     }
 
     handleClickSubmit = async () =>{
-        await service.Write(this.props.token,this.state.content);
+        await service.write(this.props.token,this.state.content);
         this.setState({
             content: null
         });
     }
 
     componentDidMount() {
-        this.fetchPostInfo(this.state.page);
-
         window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.id !== nextProps.id) {
+            this.fetchPostInfo(this.state.page,nextProps.id);
+        }
     }
 
     componentWillUnmount() {
@@ -76,7 +79,8 @@ class PostContainer extends Component {
             <PostWrapper>
                 <Write
                 onChange = {this.handleContentChange}
-                onClick = {this.handleClickSubmit}/>
+                onClick = {this.handleClickSubmit}
+                />
                 <PostList
                 Posts={this.state.postList}/>
             </PostWrapper>
