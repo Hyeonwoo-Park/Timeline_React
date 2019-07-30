@@ -7,7 +7,7 @@ export function getBoard(page,writer) {
 export function write(token,content){
     console.log(token);
     console.log(content);
-    return axios.post('/boards',{
+    return axios.post('/boards/timeline',{
         "contentText": content,
         "contentImg": "string"
       },{headers:{

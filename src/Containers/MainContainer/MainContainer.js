@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {NavigationContainer, PostContainer, FriendsContainer} from '..';
 import {MainWrapper} from '../../Components';
 import * as service from '../../Services/Sign';
-import * as member from '../../Services/Member';
+import * as memberService from '../../Services/Member';
 
 class MainContainer extends Component {
     constructor(props){
@@ -11,7 +11,7 @@ class MainContainer extends Component {
             email: null,
             password: null,
             token: null,
-            id: null
+            member: null
         }
     }
 
@@ -22,24 +22,18 @@ class MainContainer extends Component {
     }
     
     handleClick = async () =>{
-        console.log("check");
-        const x = await service.signIn(this.state.email,this.state.password);
-        console.log(x);
-        if(x === null)
+        let response;
+        response = await service.signIn(this.state.email,this.state.password);
+        if(response === null)
             return;
-        console.log(x);
-        const token = x.data;
-        console.log(token.data);
-        const y = await member.signIn(token);
-        const id = y.data.id;
+        const token = response.data;
 
+        response = await memberService.signIn(token);
+        const member = response.data;
         this.setState({
             token,
-            id
+            member
         });
-        console.log(this.state.token);
-        console.log(this.state.id);
-        
     }
 
     render(){
@@ -48,14 +42,14 @@ class MainContainer extends Component {
                 <NavigationContainer
                     onChange = {this.handleChange}
                     onClick = {this.handleClick}
-                    email = {this.state.email}
-                    token = {this.state.token}/>
+                    token = {this.state.token}
+                    nickname = {this.state.member === null ? null : this.state.member.nickname}/>
                 <MainWrapper>
                     <PostContainer
                         token = {this.state.token}
-                        id = {this.state.id}/>
+                        id = {this.state.member === null ? null : this.state.member.id}/>
                     <FriendsContainer
-                        id = {this.state.id}/>
+                        id = {this.state.member === null ? null : this.state.member.id}/>
                 </MainWrapper>
             </div>
         )

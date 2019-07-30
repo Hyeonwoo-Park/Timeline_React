@@ -1,10 +1,10 @@
 import React from 'react';
 
-const UserInfo = (props) => {
+const UserInfo = ({nickname}) => {
     return (
         <div>
-            <strong>Email : </strong>
-            {props.email}
+            <strong>NickName : </strong>
+            {nickname}
         </div>
     );
 };

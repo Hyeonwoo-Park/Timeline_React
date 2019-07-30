@@ -63,6 +63,7 @@ class PostContainer extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.id !== nextProps.id) {
+            console.log(nextProps);
             this.fetchPostInfo(this.state.page,nextProps.id);
         }
     }
@@ -78,6 +79,7 @@ class PostContainer extends Component {
         return (
             <PostWrapper>
                 <Write
+                content = {this.state.content}
                 onChange = {this.handleContentChange}
                 onClick = {this.handleClickSubmit}
                 />
