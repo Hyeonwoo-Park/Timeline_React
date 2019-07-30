@@ -2,7 +2,7 @@ import React from 'react';
 import {Post} from '../index';
 const PostList = ({Posts}) => {
 
-    let l = Posts.map(
+    let list = Posts.map(
         (p, index)=>(
             <Post 
                 writer = {p.writerNickName}
@@ -15,7 +15,7 @@ const PostList = ({Posts}) => {
 
     return(
         <div className="PostList">
-            {l}
+            {list}
         </div>
     );
 };

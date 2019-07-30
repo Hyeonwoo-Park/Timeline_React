@@ -21,7 +21,7 @@ class NavigationContainer extends Component{
                     signIn = {this.props.onClick}/>)
                 :
                 (<UserInfo
-                    id= {this.props.id}
+                    email= {this.props.email}
                 />)
                 }
             </NavigationWrapper>

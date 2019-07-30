@@ -2,14 +2,16 @@ import React,{Component} from 'react';
 import {NavigationContainer, PostContainer, FriendsContainer} from '..';
 import {MainWrapper} from '../../Components';
 import * as service from '../../Services/Sign';
+import * as member from '../../Services/Member';
 
 class MainContainer extends Component {
     constructor(props){
         super();
         this.state = {
-            id: null,
+            email: null,
             password: null,
-            token: null
+            token: null,
+            id: null
         }
     }
 
@@ -21,11 +23,19 @@ class MainContainer extends Component {
     
     handleClick = async () =>{
         console.log("check");
-        const x = await service.signIn(this.state.id,this.state.password);
+        const x = await service.signIn(this.state.email,this.state.password);
+        if(x === null)
+            return;
+        const token = x.data;
+        const y = await member.signIn(token);
+        const id = y.data.id;
+
         this.setState({
-            token: x.data
+            token,
+            id
         });
         console.log(this.state.token);
+        console.log(this.state.id);
         
     }
 
@@ -35,12 +45,14 @@ class MainContainer extends Component {
                 <NavigationContainer
                     onChange = {this.handleChange}
                     onClick = {this.handleClick}
-                    id = {this.state.id}
+                    email = {this.state.email}
                     token = {this.state.token}/>
                 <MainWrapper>
                     <PostContainer
-                        token = {this.state.token}/>
-                    <FriendsContainer/>
+                        token = {this.state.token}
+                        email = {this.state.email}/>
+                    <FriendsContainer
+                        id = {this.state.id}/>
                 </MainWrapper>
             </div>
         )

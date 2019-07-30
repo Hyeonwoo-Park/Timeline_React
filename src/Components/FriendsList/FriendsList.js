@@ -3,16 +3,18 @@ import {Friend} from '../../Components';
 import './FriendsList.css';
 
 const FriendsList = (props) =>{
-    
-    let Friends = props.friends.map(
-        (user,index)=>(
-            <Friend
-                friend = {user}
-                button = {props.relation}
-                key= {index}
-            />
-        )
-    );
+    let Friends = null;
+    if(props.friends != null){
+        Friends = props.friends.map(
+            (user,index)=>(
+                <Friend
+                    friend = {user}
+                    button = {props.relation}
+                    key= {index}
+                />
+            )
+        );
+    }
 
     return (
         <div className = "FriendsList">

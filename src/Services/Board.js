@@ -8,7 +8,6 @@ export function Write(token,content){
     console.log(token);
     console.log(content);
     return axios.post('/boards',{
-        
         "contentText": content,
         "contentImg": "string"
       },{headers:{

@@ -3,10 +3,10 @@ import React from 'react';
 const Sign = (props) => {
     return (
         <form className = "form-signin">
-            <strong>ID </strong>
+            <strong>Email </strong>
             <input
                 type= "text"
-                className= "id"
+                className= "email"
                 onChange= {props.onChange}
             />
             <strong> Password </strong>

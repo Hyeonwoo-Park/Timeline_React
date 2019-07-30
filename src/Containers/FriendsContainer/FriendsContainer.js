@@ -6,40 +6,62 @@ class FriendsContainer extends Component{
     constructor(props){
         super();
         this.state = {
-            blockedList: [
-                {
-                    id: null,
-                    nickname: null,
-                    email: null,
-                    profileImg: null
-                }
-            ]
+            blockList: [],
+            followedList: [],
+            followList: []
         };
     }
 
     fetchFriendsInfo = async (id) =>{
-        const friends = await service.Blocked(id);
-        console.log(friends);
-        const blockedList = friends.data._embedded.memberDTOList;
-        console.log(blockedList[0].id);
+        console.log(id);
+        if(id === null)
+            return;
+        const blockFriends = await service.getFriends(id,"BLOCK");
+        const followedFriends = await service.getFriends(id,"FOLLOWED");
+        const followFriends = await service.getFriends(id,"FOLLOW");
+        
+        let followedList;
+        if(followedFriends.data.page.totalElements !== 0){
+            followedList = followedFriends.data._embedded.memberDTOList;
+        }
+        let blockList;
+        if(blockFriends.data.page.totalElements !== 0){
+            blockList = blockFriends.data._embedded.memberDTOList;
+        }
+        let followList;
+        if(followFriends.data.page.totalElements !== 0){
+            followList = followFriends.data._embedded.memberDTOList;
+        }
+
         this.setState({
-            blockedList
+            blockList,
+            followedList,
+            followList
         })
-
-        console.log(this.state.blockedList);
     }
 
-    componentDidMount(){
-        this.fetchFriendsInfo(66);
-    }
-
+    componentWillReceiveProps(nextProps) {
+        if (this.props.id !== nextProps.id) {
+            this.fetchFriendsInfo(nextProps.id);
+        }
+      }
     render(){
         return(
             <FriendsWrapper>
                 <FriendsList
-                    friends = {this.state.blockedList}
-                    relation = "blocked"
+                    friends = {this.state.followList}
+                    relation = "Following"
                     />
+                <FriendsList
+                    friends = {this.state.followedList}
+                    relation = "Followed"
+                    />
+                <FriendsList
+                    friends = {this.state.blockList}
+                    relation = "Block"
+                    />
+                
+                
             </FriendsWrapper>
         );
     }

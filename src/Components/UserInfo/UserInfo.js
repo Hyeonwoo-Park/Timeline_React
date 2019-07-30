@@ -3,8 +3,8 @@ import React from 'react';
 const UserInfo = (props) => {
     return (
         <div>
-            <h>ID : </h>
-            {props.id}
+            <strong>Email : </strong>
+            {props.email}
         </div>
     );
 };

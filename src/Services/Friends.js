@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export function Blocked(id) {
-    return axios.get(`/relations/list/${id}?RelationStateEnum=BLOCKED&page=0&size=5`);
+export function getFriends(id,relation) {
+    return axios.get(`/relations/list/${id}?RelationStateEnum=${relation}&page=0&size=5`);
 }
