@@ -15,7 +15,7 @@ const Sign = (props) => {
                 className= "password"
                 onChange= {props.onChange}
             />&nbsp; &nbsp;
-            <button className= "header-btn" 
+            <button className= "navigationButton" 
                     type= "button"
                     onClick= {props.signIn}>sign in</button>
         </form>

@@ -1,4 +1,4 @@
-.HeaderWrapper {
+.navigationWrapper {
     height: 7%;
     background-color: #2F5597;
     padding: 0.4em;
@@ -6,11 +6,11 @@
     color: #fff;
 }
 
-.HeaderWrapper button{
+.navigationWrapper button{
     color: white;
 }
 
-.header-btn{
+.navigationButton{
     background:#FF6F61;
     color:#fff;
     border:none;
@@ -23,11 +23,11 @@
 }
 
 
-.header-btn:hover{
+.navigationButton:hover{
     background:#2F5597;
     color:white;
 }
-.header-btn:before,.header-btn:after{
+.navigationButton:before,.navigationButton:after{
     content:'';
     position:absolute;
     top:0;
@@ -37,13 +37,13 @@
     background: white;
     transition:400ms ease all;
 }
-.header-btn:after{
+.navigationButton:after{
     right:inherit;
     top:inherit;
     left:0;
     bottom:0;
 }
-.header-btn:hover:before,.header-btn:hover:after{
+.navigationButton:hover:before,.navigationButton:hover:after{
     width:100%;
     transition:800ms ease all;
 }

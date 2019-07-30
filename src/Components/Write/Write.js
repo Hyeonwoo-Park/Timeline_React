@@ -1,7 +1,9 @@
 import React from 'react';
+import './Write.css';
+
 const Write = (props)=>{
     return (
-        <div className="card">
+        <div className="write">
             <div className="card-body">
                 <div className="form-group">
                     <textarea 

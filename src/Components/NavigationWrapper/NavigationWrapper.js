@@ -3,7 +3,7 @@ import './NavigationWrapper.css';
 
 const NavigationWrapper = ({children}) =>{
     return(
-        <div className = "NavigationWrapper">
+        <div className = "navigationWrapper">
                 {children}
         </div>
     )
