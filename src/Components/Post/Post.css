@@ -8,9 +8,7 @@
 .Post {
     margin-top: 0.3em;
     border-radius: 5%;
-    background-color: rgb(255,111,97);
     border: 0.2em solid #2F5597;
-    color: white;
 }
 .board-content{
     margin-left: 0.3em;
